@@ -1,0 +1,11 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    color: black;
+}
+
+#root {
+    width: 90%;
+    max-width: 1500px;
+}

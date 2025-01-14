@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-size: 20px;
+    min-width: 500px;
+    justify-content: space-between;
+}
+
+.header-right > div,
+.header-right > p,
+.header > h1 {
+    cursor: pointer;
+}
+.icon {
+    margin-top: 8px;
+}
+#divider {
+    display: flex;
+    align-items: center;
+    opacity: 0.3;
+}
