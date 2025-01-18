@@ -1,0 +1,33 @@
+.footer {
+    border-top: 1px solid #cfcfcf;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+}
+
+.footer-top,
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-top div:first-child {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    align-content: center;
+}
+
+.socials {
+    vertical-align: center;
+}
+
+.email-input {
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 1px solid black;
+    width: 300px;
+    font-size: 18px;
+}
