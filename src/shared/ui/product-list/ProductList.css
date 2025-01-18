@@ -1,0 +1,23 @@
+.product-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-list-header h1 {
+    font-size: 40px;
+}
+
+.viewAllButton button {
+    background-color: transparent;
+    color: #a79172;
+    cursor: pointer;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: space-between;
+    padding-bottom: 200px;
+}

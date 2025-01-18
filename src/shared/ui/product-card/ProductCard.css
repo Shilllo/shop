@@ -1,0 +1,31 @@
+.product-card div {
+    width: 450px;
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.content p:last-child {
+    color: #a79172;
+    margin-top: 0;
+}
+
+.content p {
+    margin-bottom: 5px;
+}
+
+.product-card div:first-child {
+    align-self: center;
+}
+
+.product-card {
+    width: fit-content;
+}
+
+.content {
+    height: fit-content !important;
+}
