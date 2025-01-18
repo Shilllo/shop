@@ -1,6 +1,6 @@
 import './Header.css';
 
-function Header() {
+export function Header() {
     return (
         <div className="header">
             <h1>SHOPPE</h1>
@@ -83,5 +83,3 @@ function Header() {
         </div>
     );
 }
-
-export default Header;
