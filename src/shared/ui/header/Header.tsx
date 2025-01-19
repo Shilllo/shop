@@ -3,9 +3,11 @@ import './Header.css';
 export function Header() {
     return (
         <div className="header">
-            <h1>SHOPPE</h1>
+            <h1>
+                <a href="/">SHOPPE</a>
+            </h1>
             <div className="header-right">
-                <p>Shop</p>
+                <a href="/shop">Shop</a>
                 <p>Blog</p>
                 <p>Our Story</p>
                 <div id="divider">|</div>
