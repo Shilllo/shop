@@ -1,6 +1,6 @@
-import { Button } from '../button';
+import { Button } from '../../../shared/button';
 import './ProductList.css';
-import { ProductCard } from '../product-card';
+import { ProductCard } from '../../../entities/product';
 
 const products = [
     {

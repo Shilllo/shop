@@ -1,13 +1,13 @@
 import './Slider.css';
-import { Button } from '../button';
+import { Button } from '../../../shared/button';
 import React from 'react';
 
 const images = [
-    '../public/image1.jpg',
-    '../public/image1.jpg',
-    '../public/image1.jpg',
-    '../public/image1.jpg',
-    '../public/image1.jpg',
+    '/image1.jpg',
+    '/image1.jpg',
+    '/image1.jpg',
+    '/image1.jpg',
+    '/image1.jpg',
 ];
 const delay = 5000;
 
@@ -47,15 +47,13 @@ export function Slider() {
                         key={index}
                         style={{ backgroundImage: `url(${image})` }}
                     >
-                        <div className="element">
-                            <div className="text">
-                                <h1>Gold big hoops</h1>
-                                <p>$ 68,00</p>
-                                <Button
-                                    className="viewProductButton"
-                                    text="View Product"
-                                />
-                            </div>
+                        <div className="text">
+                            <h1>Gold big hoops</h1>
+                            <p>$ 68,00</p>
+                            <Button
+                                className="viewProductButton"
+                                text="View Product"
+                            />
                         </div>
                     </div>
                 ))}

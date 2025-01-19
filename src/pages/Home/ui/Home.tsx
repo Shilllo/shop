@@ -1,7 +1,7 @@
-import { Header } from '../../../shared/ui/header';
-import { Slider } from '../../../shared/ui/slider';
-import { ProductList } from '../../../shared/ui/product-list';
-import { Footer } from '../../../shared/ui/footer';
+import { Header } from '../../../widgets/header';
+import { Slider } from '../../../widgets/slider';
+import { ProductList } from '../../../widgets/product-list';
+import { Footer } from '../../../widgets/footer';
 
 export function Home() {
     return (
