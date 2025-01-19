@@ -14,7 +14,7 @@
 }
 
 .header-right > div,
-.header-right > p,
+.header-right > a,
 .header > h1 {
     cursor: pointer;
 }

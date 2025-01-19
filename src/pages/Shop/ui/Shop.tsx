@@ -1,4 +1,4 @@
-import { Header } from '../../../shared/ui/header';
+import { Header } from '../../../widgets/header';
 
 export function Shop() {
     return (
