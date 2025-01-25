@@ -7,6 +7,7 @@
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    position: relative;
 }
 
 .content p:last-child {
@@ -28,4 +29,17 @@
 
 .content {
     height: fit-content !important;
+}
+
+#badge {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    width: fit-content;
+    height: fit-content;
+    font-size: 17px;
+    background-color: #a18a68;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 15px;
 }

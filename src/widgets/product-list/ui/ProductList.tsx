@@ -1,54 +1,7 @@
 import { Button } from '../../../shared/button';
 import './ProductList.css';
 import { ProductCard } from '../../../entities/product';
-
-const products = [
-    {
-        name: 'Lira Earrings',
-        price: 20,
-        src: 'product1.jpg',
-    },
-    {
-        name: 'Lira Earrings',
-        price: 20,
-        src: 'product1.jpg',
-    },
-    {
-        name: 'Lira Earrings',
-        price: 20,
-        src: 'product1.jpg',
-    },
-    {
-        name: 'Lira Earrings',
-        price: 20,
-        src: 'product1.jpg',
-    },
-    {
-        name: 'Lira Earrings',
-        price: 20,
-        src: 'product1.jpg',
-    },
-    {
-        name: 'Lira Earrings',
-        price: 20,
-        src: 'product1.jpg',
-    },
-    {
-        name: 'Lira Earrings',
-        price: 20,
-        src: 'product1.jpg',
-    },
-    {
-        name: 'Lira Earrings',
-        price: 20,
-        src: 'product1.jpg',
-    },
-    {
-        name: 'Lira Earrings',
-        price: 20,
-        src: 'product1.jpg',
-    },
-];
+import config from '../../../shared/config/config';
 
 export function ProductList() {
     return (
@@ -58,7 +11,7 @@ export function ProductList() {
                 <Button text="View All" className="viewAllButton" />
             </div>
             <div className="product-list">
-                {products.map((product, index) => (
+                {config.products.map((product, index) => (
                     <ProductCard
                         src={product.src}
                         name={product.name}
