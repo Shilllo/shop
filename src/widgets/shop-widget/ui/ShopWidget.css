@@ -46,6 +46,7 @@
     background-color: transparent;
     color: black;
     padding: 0px;
+    cursor: pointer;
 }
 
 .search-input input {
