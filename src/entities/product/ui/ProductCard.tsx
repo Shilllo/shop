@@ -14,7 +14,7 @@ export function ProductCard({
     return (
         <div className="product-card">
             <div style={{ backgroundImage: `url(${src}` }}>
-                <div id="badge">{badge}</div>
+                {badge ? <div id="badge">{badge}</div> : null}
             </div>
             <div className="content">
                 <p>{name}</p>

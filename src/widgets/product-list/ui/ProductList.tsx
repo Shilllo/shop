@@ -17,6 +17,7 @@ export function ProductList() {
                         name={product.name}
                         price={product.price}
                         key={index}
+                        badge={product.status}
                     />
                 ))}
             </div>
