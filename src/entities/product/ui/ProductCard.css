@@ -1,4 +1,4 @@
-.product-card div {
+.product-card .background {
     width: 450px;
     height: 450px;
     background-size: cover;
@@ -8,6 +8,8 @@
     flex-direction: column;
     cursor: pointer;
     position: relative;
+    justify-content: center;
+    align-items: center;
 }
 
 .content p:last-child {
@@ -42,4 +44,20 @@
     border-radius: 5px;
     color: white;
     padding: 5px 15px;
+}
+
+.onHover {
+    opacity: 0;
+    transition: 0.5s;
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.onHover:hover {
+    opacity: 1;
+    background-color: #ffffff94;
 }
