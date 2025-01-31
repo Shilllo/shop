@@ -3,6 +3,8 @@ import config from '../../../shared/config/config';
 import './ShopWidget.css';
 import * as React from 'react';
 import SearchIcon from '../../../shared/assets/icons/search-icon.svg';
+import { getImage } from '../../../shared/lib/utils/getImage';
+
 export function ShopWidget() {
     const [values, setValues] = React.useState([40, 180]);
 
@@ -104,11 +106,11 @@ export function ShopWidget() {
             <div className="shop-widget-products">
                 {config.products.map((product, index) => (
                     <ProductCard
-                        src={product.src}
+                        src={getImage(product.src)}
                         name={product.name}
                         price={product.price}
                         key={index}
-                        badge="- %21"
+                        badge={product.status}
                     />
                 ))}
             </div>

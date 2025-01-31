@@ -2,6 +2,7 @@ import './ProductCard.css';
 import ShoppingCart from '../../../shared/assets/icons/shopping-cart.svg';
 import Heart from '../../../shared/assets/icons/heart.svg';
 import Eye from '../../../shared/assets/icons/eye.svg';
+
 export function ProductCard({
     src,
     name,
@@ -15,10 +16,8 @@ export function ProductCard({
 }) {
     return (
         <div className="product-card">
-            <div
-                className="background"
-                style={{ backgroundImage: `url(${src}` }}
-            >
+            <div className="card-content">
+                <img src={src} alt={name} />
                 {badge && <div id="badge">{badge}</div>}
                 <div className="onHover">
                     <img src={ShoppingCart} style={{ width: '40px' }} />

@@ -1,17 +1,3 @@
-.product-card .background {
-    width: 450px;
-    height: 450px;
-    background-size: cover;
-    background-position: center;
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-}
-
 .content p:last-child {
     color: #a79172;
     margin-top: 0;
@@ -60,4 +46,23 @@
 .onHover:hover {
     opacity: 1;
     background-color: #ffffff94;
+}
+
+.card-content {
+    position: relative;
+}
+
+.card-content > img {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+}
+
+.onHover {
+    position: absolute;
+    top: 0;
+}
+
+.onHover > img {
+    cursor: pointer;
 }

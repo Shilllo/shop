@@ -18,6 +18,11 @@
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
-    justify-content: space-between;
+    justify-content: center;
     padding-bottom: 200px;
+}
+
+.product-list-container > .product-list > .product-card > .card-content > img {
+    width: 465px;
+    height: 465px;
 }
