@@ -85,7 +85,6 @@ export function ShopWidget() {
                                 type="checkbox"
                                 onChange={(e) => {
                                     setOnSaleChecked(e.target.checked);
-                                    console.log(onSaleChecked);
                                 }}
                                 checked={onSaleChecked}
                             />
@@ -100,7 +99,6 @@ export function ShopWidget() {
                                 type="checkbox"
                                 onChange={(e) => {
                                     setInStockChecked(e.target.checked);
-                                    console.log(inStockChecked);
                                 }}
                                 checked={inStockChecked}
                             />
