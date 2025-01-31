@@ -19,7 +19,7 @@ export function ProductCard({
                 className="background"
                 style={{ backgroundImage: `url(${src}` }}
             >
-                {badge ? <div id="badge">{badge}</div> : null}
+                {badge && <div id="badge">{badge}</div>}
                 <div className="onHover">
                     <img src={ShoppingCart} style={{ width: '40px' }} />
                     <img src={Heart} style={{ width: '40px' }} />
