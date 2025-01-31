@@ -1,9 +1,26 @@
 import './ProductList.css';
 import { ProductCard } from '../../../entities/product';
-import config from '../../../shared/config/config';
 import { getImage } from '../../../shared/lib/utils/getImage';
+import { getProducts } from '../api/getProducts';
+import React from 'react';
+
+interface ProductData {
+    [key: string]: {
+        id: number;
+        name: string;
+        price: number;
+        src: string;
+        status: string;
+    }[];
+}
 
 export function ProductList() {
+    const [products, setProducts] = React.useState<ProductData>({});
+
+    React.useEffect(() => {
+        getProducts().then((data) => setProducts(data as ProductData));
+    }, []);
+
     return (
         <div className="product-list-container">
             <div className="product-list-header">
@@ -13,15 +30,16 @@ export function ProductList() {
                 </a>
             </div>
             <div className="product-list">
-                {config.products.map((product, index) => (
-                    <ProductCard
-                        src={getImage(product.src, 'product-images')}
-                        name={product.name}
-                        price={product.price}
-                        key={index}
-                        badge={product.status}
-                    />
-                ))}
+                {products &&
+                    products?.products?.map((product) => (
+                        <ProductCard
+                            src={getImage(product.src, 'product-images')}
+                            name={product.name}
+                            price={product.price}
+                            key={product.id}
+                            badge={product.status}
+                        />
+                    ))}
             </div>
         </div>
     );

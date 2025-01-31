@@ -1,9 +1,19 @@
 import { ProductCard } from '../../../entities/product';
-import config from '../../../shared/config/config';
 import './ShopWidget.css';
 import * as React from 'react';
 import SearchIcon from '../../../shared/assets/icons/search-icon.svg';
 import { getImage } from '../../../shared/lib/utils/getImage';
+import { getProducts } from '../../product-list';
+
+interface ProductData {
+    [key: string]: {
+        id: number;
+        name: string;
+        price: number;
+        src: string;
+        status: string;
+    }[];
+}
 
 export function ShopWidget() {
     const [values, setValues] = React.useState([40, 180]);
@@ -12,6 +22,12 @@ export function ShopWidget() {
 
     const [onSaleChecked, setOnSaleChecked] = React.useState(false);
     const [inStockChecked, setInStockChecked] = React.useState(false);
+
+    const [products, setProducts] = React.useState<ProductData>({});
+
+    React.useEffect(() => {
+        getProducts().then((data) => setProducts(data as ProductData));
+    }, []);
 
     return (
         <div className="shop-widget">
@@ -107,15 +123,16 @@ export function ShopWidget() {
                     </div>
                 </div>
                 <div className="shop-widget-products">
-                    {config.products.map((product, index) => (
-                        <ProductCard
-                            src={getImage(product.src, 'product-images')}
-                            name={product.name}
-                            price={product.price}
-                            key={index}
-                            badge={product.status}
-                        />
-                    ))}
+                    {products &&
+                        products?.products?.map((product) => (
+                            <ProductCard
+                                src={getImage(product.src, 'product-images')}
+                                name={product.name}
+                                price={product.price}
+                                key={product.id}
+                                badge={product.status}
+                            />
+                        ))}
                 </div>
             </div>
         </div>
