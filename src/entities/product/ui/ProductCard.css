@@ -30,7 +30,7 @@
 }
 
 .content {
-    height: fit-content !important;
+    height: fit-content;
 }
 
 #badge {

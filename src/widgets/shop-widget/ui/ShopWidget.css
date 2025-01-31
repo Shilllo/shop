@@ -24,7 +24,7 @@
     padding-top: 73.2px;
 }
 
-.shop-widget-products > .product-card > div {
+.shop-widget-products > .product-card > .background {
     width: 350px;
     height: 350px;
 }
