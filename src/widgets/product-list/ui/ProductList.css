@@ -8,7 +8,7 @@
     font-size: 40px;
 }
 
-.viewAllButton button {
+.viewAllButton {
     background-color: transparent;
     color: #a79172;
     cursor: pointer;

@@ -9,7 +9,9 @@ export function ProductList() {
         <div className="product-list-container">
             <div className="product-list-header">
                 <h1>Shop The Latest</h1>
-                <Button text="View All" className="viewAllButton" />
+                <a className="viewAllButton" href="/shop">
+                    View All
+                </a>
             </div>
             <div className="product-list">
                 {config.products.map((product, index) => (
