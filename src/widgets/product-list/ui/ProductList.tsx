@@ -1,4 +1,3 @@
-import { Button } from '../../../shared/button';
 import './ProductList.css';
 import { ProductCard } from '../../../entities/product';
 import config from '../../../shared/config/config';
