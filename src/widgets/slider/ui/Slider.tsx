@@ -1,14 +1,9 @@
 import './Slider.css';
 import { Button } from '../../../shared/button';
 import React from 'react';
+import { getImage } from '../../../shared/lib/utils/getImage';
+import config from '../../../shared/config/config';
 
-const images = [
-    '/image1.jpg',
-    '/image1.jpg',
-    '/image1.jpg',
-    '/image1.jpg',
-    '/image1.jpg',
-];
 const delay = 5000;
 
 export function Slider() {
@@ -26,7 +21,9 @@ export function Slider() {
         timeoutRef.current = setTimeout(
             () =>
                 setIndex((prevIndex) =>
-                    prevIndex === images.length - 1 ? 0 : prevIndex + 1,
+                    prevIndex === config.sliderImages.length - 1
+                        ? 0
+                        : prevIndex + 1,
                 ),
             delay,
         );
@@ -41,12 +38,9 @@ export function Slider() {
                 className="slideshowSlider"
                 style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
             >
-                {images.map((image, index) => (
-                    <div
-                        className="slide"
-                        key={index}
-                        style={{ backgroundImage: `url(${image})` }}
-                    >
+                {config.sliderImages.map((image, index) => (
+                    <div className="slide" key={index}>
+                        <img src={getImage(image, 'slider-images')} />
                         <div className="text">
                             <h1>Gold big hoops</h1>
                             <p>$ 68,00</p>
@@ -60,7 +54,7 @@ export function Slider() {
             </div>
 
             <div className="slideshowDots">
-                {images.map((_, idx) => (
+                {config.sliderImages.map((_, idx) => (
                     <div
                         key={idx}
                         className={`slideshowDot${

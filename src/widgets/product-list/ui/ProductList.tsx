@@ -15,7 +15,7 @@ export function ProductList() {
             <div className="product-list">
                 {config.products.map((product, index) => (
                     <ProductCard
-                        src={getImage(product.src)}
+                        src={getImage(product.src, 'product-images')}
                         name={product.name}
                         price={product.price}
                         key={index}

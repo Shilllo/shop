@@ -1,3 +1,3 @@
-export function getImage(src: string) {
-    return `src/shared/assets/product-images/${src}`;
+export function getImage(src: string, folder: string) {
+    return `src/shared/assets/${folder}/${src}`;
 }

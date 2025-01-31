@@ -73,4 +73,12 @@ const products = [
     },
 ];
 
-export default { products };
+const sliderImages = [
+    'sliderImage1.jpg',
+    'sliderImage1.jpg',
+    'sliderImage1.jpg',
+    'sliderImage1.jpg',
+    'sliderImage1.jpg',
+];
+
+export default { products, sliderImages };
