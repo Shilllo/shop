@@ -1,14 +1,5 @@
 import products from '../../../shared/lib/mock/products.json';
-
-interface ProductData {
-    [key: string]: {
-        id: number;
-        name: string;
-        price: number;
-        src: string;
-        status: string;
-    }[];
-}
+import { ProductData } from '../../../shared/lib/types/types';
 
 export function getProducts(): Promise<ProductData> {
     return new Promise((resolve) => resolve(products));

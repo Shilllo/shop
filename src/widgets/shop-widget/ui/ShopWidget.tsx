@@ -4,14 +4,8 @@ import * as React from 'react';
 import SearchIcon from '../../../shared/assets/icons/search-icon.svg';
 import { getImage } from '../../../shared/lib/utils/getImage';
 import { getProducts } from '../../product-list';
-
-interface Product {
-    id: number;
-    name: string;
-    price: number;
-    src: string;
-    status: string;
-}
+import { getProductBadge } from '../../../shared/lib/utils/getProductBadge';
+import { Product } from '../../../shared/lib/types/types';
 
 export function ShopWidget() {
     const [values, setValues] = React.useState([40, 180]);
@@ -24,9 +18,10 @@ export function ShopWidget() {
     const [products, setProducts] = React.useState<Array<Product>>([]);
 
     React.useEffect(() => {
-        getProducts().then((data) => setProducts(data.products));
+        getProducts().then((data) => {
+            setProducts(data.products);
+        });
     }, []);
-
     return (
         <div className="shop-widget">
             <h1>Shop The Latest</h1>
@@ -129,7 +124,7 @@ export function ShopWidget() {
                                 name={product.name}
                                 price={product.price}
                                 key={product.id}
-                                badge={product.status}
+                                badge={getProductBadge(product.status)}
                             />
                         ))}
                 </div>

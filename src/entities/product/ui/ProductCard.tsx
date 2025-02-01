@@ -12,7 +12,7 @@ export function ProductCard({
     src: string;
     name: string;
     price: number;
-    badge?: string;
+    badge?: string | null;
 }) {
     return (
         <div className="product-card">

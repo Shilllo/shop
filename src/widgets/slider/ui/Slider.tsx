@@ -3,20 +3,14 @@ import { Button } from '../../../shared/button';
 import React from 'react';
 import { getImage } from '../../../shared/lib/utils/getImage';
 import { getProducts } from '../../product-list';
+import { Product } from '../../../shared/lib/types/types';
 
 const delay = 5000;
 
-interface sliderProduct {
-    id: number;
-    name: string;
-    price: number;
-    src: string;
-}
-
 export function Slider() {
-    const [sliderProducts, setSliderProducts] = React.useState<
-        Array<sliderProduct>
-    >([]);
+    const [sliderProducts, setSliderProducts] = React.useState<Array<Product>>(
+        [],
+    );
 
     React.useEffect(() => {
         getProducts().then((data) => setSliderProducts(data.sliderProducts));

@@ -4,19 +4,22 @@
             "id": 0,
             "name": "Gold big hoops",
             "price": 68,
-            "src": "GoldBigHoops.jpg"
+            "src": "GoldBigHoops.jpg",
+            "status": { "type": "DEFAULT" }
         },
         {
             "id": 1,
             "name": "Gold big hoops",
             "price": 68,
-            "src": "GoldBigHoops.jpg"
+            "src": "GoldBigHoops.jpg",
+            "status": { "type": "DEFAULT" }
         },
         {
             "id": 2,
             "name": "Gold big hoops",
             "price": 68,
-            "src": "GoldBigHoops.jpg"
+            "src": "GoldBigHoops.jpg",
+            "status": { "type": "DEFAULT" }
         }
     ],
     "products": [
@@ -25,42 +28,42 @@
             "name": "Lira Earrings",
             "price": 20,
             "src": "LiraEarrings.jpg",
-            "status": ""
+            "status": { "type": "DEFAULT" }
         },
         {
             "id": 1,
             "name": "Hal Earrings",
             "price": 25,
             "src": "HalEarrings.jpg",
-            "status": "- 21%"
+            "status": { "type": "DISCOUNT", "value": 21 }
         },
         {
             "id": 2,
             "name": "Kaede Hair Pet Set Of 3",
             "price": 30,
             "src": "KaedeHairPetSetOf3.jpg",
-            "status": "Sold Out"
+            "status": { "type": "SOLD_OUT" }
         },
         {
             "id": 3,
             "name": "Plaine Necklace",
             "price": 19,
             "src": "LiraEarrings.jpg",
-            "status": ""
+            "status": { "type": "DEFAULT" }
         },
         {
             "id": 4,
             "name": "Lira Earrings",
             "price": 20,
             "src": "HalEarrings.jpg",
-            "status": ""
+            "status": { "type": "DEFAULT" }
         },
         {
             "id": 5,
             "name": "Hal Earrings",
             "price": 25,
             "src": "KaedeHairPetSetOf3.jpg",
-            "status": "- 21%"
+            "status": { "type": "DISCOUNT", "value": 50 }
         }
     ]
 }

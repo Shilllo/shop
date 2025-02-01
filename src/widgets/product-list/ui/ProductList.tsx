@@ -3,14 +3,8 @@ import { ProductCard } from '../../../entities/product';
 import { getImage } from '../../../shared/lib/utils/getImage';
 import { getProducts } from '../api/getProducts';
 import React from 'react';
-
-interface Product {
-    id: number;
-    name: string;
-    price: number;
-    src: string;
-    status: string;
-}
+import { getProductBadge } from '../../../shared/lib/utils/getProductBadge';
+import { Product } from '../../../shared/lib/types/types';
 
 export function ProductList() {
     const [products, setProducts] = React.useState<Array<Product>>([]);
@@ -35,7 +29,7 @@ export function ProductList() {
                             name={product.name}
                             price={product.price}
                             key={product.id}
-                            badge={product.status}
+                            badge={getProductBadge(product.status)}
                         />
                     ))}
             </div>
