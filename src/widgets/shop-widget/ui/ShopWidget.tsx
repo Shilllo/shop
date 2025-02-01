@@ -41,7 +41,7 @@ export function ShopWidget() {
                     </div>
                     <div className="shopByFilter">
                         <select name="shopBy" className="shopBy" required>
-                            <option selected value=""></option>
+                            <option selected disabled />
                             <option value="value1">Значение1</option>
                             <option value="value2">Значение2</option>
                             <option value="value3">Значение3</option>
@@ -50,7 +50,7 @@ export function ShopWidget() {
                     </div>
                     <div className="sortByFilter">
                         <select name="sortBy" className="sortBy" required>
-                            <option selected value=""></option>
+                            <option selected disabled />
                             <option value="value1">
                                 Sort By price: Low to High
                             </option>
