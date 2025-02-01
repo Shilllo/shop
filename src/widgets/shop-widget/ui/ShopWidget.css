@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: space-between;
     padding-bottom: 100px;
+    gap: 20px;
 }
 
 .shop-widget-container {
@@ -30,33 +31,6 @@
 .shop-widget-products > .product-card > .background {
     width: 350px;
     height: 350px;
-}
-
-.search-input {
-    display: flex;
-    border-bottom: 1px solid rgb(216, 216, 216);
-    justify-content: space-between;
-    width: 250px;
-    padding: 5px 0px;
-}
-
-.search-input > input:focus {
-    outline: none;
-}
-
-.search-input button {
-    width: fit-content;
-    background-color: transparent;
-    color: black;
-    padding: 0px;
-    cursor: pointer;
-}
-
-.search-input input {
-    background-color: transparent;
-    border: none;
-    font-size: 16px;
-    color: black;
 }
 
 .sortByFilter,
@@ -246,4 +220,51 @@
 
 .switcher input:checked + .slider-switch:before {
     transform: translateX(18px);
+}
+
+/* SEARCH-INPUT */
+
+.search-input {
+    display: flex;
+    border-bottom: 1px solid rgb(216, 216, 216);
+    justify-content: space-between;
+    width: 250px;
+    padding: 0px;
+    position: relative;
+}
+
+.search-input input:focus {
+    outline: none;
+}
+
+.search-input button {
+    width: fit-content;
+    background-color: transparent;
+    color: black;
+    padding: 0px;
+    cursor: pointer;
+}
+
+.search-input > .input {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    color: black;
+}
+
+.input:focus ~ .input-label,
+.input:valid ~ .input-label {
+    transform: translateY(-20px) translateX(-10px);
+    font-size: 14px;
+    color: rgb(90, 88, 88);
+}
+
+.input-label {
+    transition: 0.2s ease all;
+    transition-delay: calc(var(--index) * 0.05s);
+    font-size: 16px;
+    position: absolute;
+    left: 10px;
+    pointer-events: none;
+    color: rgb(90, 88, 88);
 }

@@ -20,14 +20,14 @@
     align-content: center;
 }
 
-.socials {
-    vertical-align: center;
+.footer-top > .search-input > input {
+    width: 300px;
 }
 
-.email-input {
-    background-color: transparent;
-    border: 0px;
-    border-bottom: 1px solid black;
+.footer-top > .search-input {
     width: 300px;
-    font-size: 18px;
+}
+
+.footer-top > .search-input > .input-label {
+    bottom: 18px;
 }

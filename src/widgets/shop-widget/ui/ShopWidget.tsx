@@ -33,7 +33,8 @@ export function ShopWidget() {
             <div className="shop-widget-container">
                 <div className="filters">
                     <div className="search-input">
-                        <input placeholder="Search..." />
+                        <input required type="text" className="input" />
+                        <label className="input-label">Search</label>
                         <button>
                             <img src={SearchIcon} />
                         </button>
