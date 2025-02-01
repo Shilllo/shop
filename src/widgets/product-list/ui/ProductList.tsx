@@ -4,21 +4,19 @@ import { getImage } from '../../../shared/lib/utils/getImage';
 import { getProducts } from '../api/getProducts';
 import React from 'react';
 
-interface ProductData {
-    [key: string]: {
-        id: number;
-        name: string;
-        price: number;
-        src: string;
-        status: string;
-    }[];
+interface Product {
+    id: number;
+    name: string;
+    price: number;
+    src: string;
+    status: string;
 }
 
 export function ProductList() {
-    const [products, setProducts] = React.useState<ProductData>({});
+    const [products, setProducts] = React.useState<Array<Product>>([]);
 
     React.useEffect(() => {
-        getProducts().then((data) => setProducts(data as ProductData));
+        getProducts().then((data) => setProducts(data.products));
     }, []);
 
     return (
@@ -31,7 +29,7 @@ export function ProductList() {
             </div>
             <div className="product-list">
                 {products &&
-                    products?.products?.map((product) => (
+                    products?.map((product) => (
                         <ProductCard
                             src={getImage(product.src, 'product-images')}
                             name={product.name}

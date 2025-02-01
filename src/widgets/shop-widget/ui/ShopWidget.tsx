@@ -5,14 +5,12 @@ import SearchIcon from '../../../shared/assets/icons/search-icon.svg';
 import { getImage } from '../../../shared/lib/utils/getImage';
 import { getProducts } from '../../product-list';
 
-interface ProductData {
-    [key: string]: {
-        id: number;
-        name: string;
-        price: number;
-        src: string;
-        status: string;
-    }[];
+interface Product {
+    id: number;
+    name: string;
+    price: number;
+    src: string;
+    status: string;
 }
 
 export function ShopWidget() {
@@ -23,10 +21,10 @@ export function ShopWidget() {
     const [onSaleChecked, setOnSaleChecked] = React.useState(false);
     const [inStockChecked, setInStockChecked] = React.useState(false);
 
-    const [products, setProducts] = React.useState<ProductData>({});
+    const [products, setProducts] = React.useState<Array<Product>>([]);
 
     React.useEffect(() => {
-        getProducts().then((data) => setProducts(data as ProductData));
+        getProducts().then((data) => setProducts(data.products));
     }, []);
 
     return (
@@ -124,7 +122,7 @@ export function ShopWidget() {
                 </div>
                 <div className="shop-widget-products">
                     {products &&
-                        products?.products?.map((product) => (
+                        products?.map((product) => (
                             <ProductCard
                                 src={getImage(product.src, 'product-images')}
                                 name={product.name}

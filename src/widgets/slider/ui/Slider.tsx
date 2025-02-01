@@ -2,11 +2,26 @@ import './Slider.css';
 import { Button } from '../../../shared/button';
 import React from 'react';
 import { getImage } from '../../../shared/lib/utils/getImage';
-import config from '../../../shared/config/config';
+import { getProducts } from '../../product-list';
 
 const delay = 5000;
 
+interface sliderProduct {
+    id: number;
+    name: string;
+    price: number;
+    src: string;
+}
+
 export function Slider() {
+    const [sliderProducts, setSliderProducts] = React.useState<
+        Array<sliderProduct>
+    >([]);
+
+    React.useEffect(() => {
+        getProducts().then((data) => setSliderProducts(data.sliderProducts));
+    }, []);
+
     const [index, setIndex] = React.useState(0);
     const timeoutRef = React.useRef<number | null>(null);
 
@@ -21,16 +36,14 @@ export function Slider() {
         timeoutRef.current = setTimeout(
             () =>
                 setIndex((prevIndex) =>
-                    prevIndex === config.sliderImages.length - 1
-                        ? 0
-                        : prevIndex + 1,
+                    prevIndex === sliderProducts.length - 1 ? 0 : prevIndex + 1,
                 ),
             delay,
         );
         return () => {
             resetTimeout();
         };
-    }, [index]);
+    }, [index, sliderProducts.length]);
 
     return (
         <div className="slider">
@@ -38,12 +51,12 @@ export function Slider() {
                 className="slideshowSlider"
                 style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
             >
-                {config.sliderImages.map((image, index) => (
-                    <div className="slide" key={index}>
-                        <img src={getImage(image, 'slider-images')} />
+                {sliderProducts.map((product) => (
+                    <div className="slide" key={product.id}>
+                        <img src={getImage(product.src, 'slider-images')} />
                         <div className="text">
-                            <h1>Gold big hoops</h1>
-                            <p>$ 68,00</p>
+                            <h1>{product.name}</h1>
+                            <p>$ {product.price},00</p>
                             <Button
                                 className="viewProductButton"
                                 text="View Product"
@@ -54,14 +67,14 @@ export function Slider() {
             </div>
 
             <div className="slideshowDots">
-                {config.sliderImages.map((_, idx) => (
+                {sliderProducts.map((product) => (
                     <div
-                        key={idx}
+                        key={product.id}
                         className={`slideshowDot${
-                            index === idx ? ' active' : ''
+                            index === product.id ? ' active' : ''
                         }`}
                         onClick={() => {
-                            setIndex(idx);
+                            setIndex(product.id);
                         }}
                     ></div>
                 ))}
