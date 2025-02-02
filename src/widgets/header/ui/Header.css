@@ -26,3 +26,7 @@
     align-items: center;
     opacity: 0.3;
 }
+
+a {
+    color: black;
+}

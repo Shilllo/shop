@@ -1,71 +1,37 @@
-import { Button } from '../../../shared/button';
 import './ProductList.css';
 import { ProductCard } from '../../../entities/product';
-
-const products = [
-    {
-        name: 'Lira Earrings',
-        price: 20,
-        src: 'product1.jpg',
-    },
-    {
-        name: 'Lira Earrings',
-        price: 20,
-        src: 'product1.jpg',
-    },
-    {
-        name: 'Lira Earrings',
-        price: 20,
-        src: 'product1.jpg',
-    },
-    {
-        name: 'Lira Earrings',
-        price: 20,
-        src: 'product1.jpg',
-    },
-    {
-        name: 'Lira Earrings',
-        price: 20,
-        src: 'product1.jpg',
-    },
-    {
-        name: 'Lira Earrings',
-        price: 20,
-        src: 'product1.jpg',
-    },
-    {
-        name: 'Lira Earrings',
-        price: 20,
-        src: 'product1.jpg',
-    },
-    {
-        name: 'Lira Earrings',
-        price: 20,
-        src: 'product1.jpg',
-    },
-    {
-        name: 'Lira Earrings',
-        price: 20,
-        src: 'product1.jpg',
-    },
-];
+import { getImage } from '../../../shared/lib/utils/getImage';
+import { getProducts } from '../api/getProducts';
+import React from 'react';
+import { getProductBadge } from '../../../shared/lib/utils/getProductBadge';
+import { Product } from '../../../shared/lib/types/types';
 
 export function ProductList() {
+    const [products, setProducts] = React.useState<Array<Product>>([]);
+
+    React.useEffect(() => {
+        getProducts().then((data) => setProducts(data.products));
+    }, []);
+
     return (
-        <div>
+        <div className="product-list-container">
             <div className="product-list-header">
                 <h1>Shop The Latest</h1>
-                <Button text="View All" className="viewAllButton" />
+                <a className="viewAllButton" href="/shop">
+                    View All
+                </a>
             </div>
             <div className="product-list">
-                {products.map((product, index) => (
-                    <ProductCard
-                        src={product.src}
-                        name={product.name}
-                        price={product.price}
-                        key={index}
-                    />
-                ))}
+                {products &&
+                    products?.map((product) => (
+                        <ProductCard
+                            src={getImage(product.src, 'product-images')}
+                            name={product.name}
+                            price={product.price}
+                            key={product.id}
+                            badge={getProductBadge(product.status)}
+                        />
+                    ))}
             </div>
         </div>
     );

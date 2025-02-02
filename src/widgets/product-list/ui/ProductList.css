@@ -8,7 +8,7 @@
     font-size: 40px;
 }
 
-.viewAllButton button {
+.viewAllButton {
     background-color: transparent;
     color: #a79172;
     cursor: pointer;
@@ -18,6 +18,11 @@
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
-    justify-content: space-between;
-    padding-bottom: 200px;
+    justify-content: center;
+    padding-bottom: 100px;
+}
+
+.product-list-container > .product-list > .product-card > .card-content > img {
+    width: 465px;
+    height: 465px;
 }
