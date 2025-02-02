@@ -25,7 +25,6 @@ export function ShopWidget() {
 
     const [currentSorting, setCurrentSorting] = React.useState<string>();
 
-    React.useEffect(() => console.log(currentSorting), [currentSorting]);
     function filterProducts(data: Product[]) {
         data = data.filter(
             (item) => item.price >= values[0] && item.price <= values[1],
