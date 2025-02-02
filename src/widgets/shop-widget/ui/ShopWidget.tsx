@@ -81,10 +81,6 @@ export function ShopWidget() {
                     </div>
 
                     <div className="range-slider-container">
-                        <label className="range-label-1">
-                            {`Price: $${values[0]} - $${values[1]}`}
-                        </label>
-                        <label className="range-label-2">Filter</label>
                         <div className="rangeslider">
                             <input
                                 className="min input-ranges"
@@ -108,6 +104,12 @@ export function ShopWidget() {
                                     handleChange([values[0], +e.target.value])
                                 }
                             />
+                        </div>
+                        <div className="range-labels">
+                            <label>
+                                {`Price: $${values[0]} - $${values[1]}`}
+                            </label>
+                            <label>Filter</label>
                         </div>
                     </div>
 
