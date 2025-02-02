@@ -44,7 +44,7 @@ export function ShopWidget() {
             return data.sort((a, b) => a.price - b.price);
         } else if (currentSorting === 'Descending') {
             return data.sort((a, b) => b.price - a.price);
-        } else if (currentSorting === 'Default') {
+        } else {
             return data;
         }
     }
