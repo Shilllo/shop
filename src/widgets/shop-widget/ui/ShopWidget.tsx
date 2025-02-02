@@ -8,7 +8,7 @@ import { getProductBadge } from '../../../shared/lib/utils/getProductBadge';
 import { Product } from '../../../shared/lib/types/types';
 
 export function ShopWidget() {
-    const [values, setValues] = React.useState([40, 180]);
+    const [values, setValues] = React.useState([0, 180]);
 
     const handleChange = (newValues: number[]) => setValues(newValues);
 
@@ -22,6 +22,33 @@ export function ShopWidget() {
             setProducts(data.products);
         });
     }, []);
+
+    const [currentSorting, setCurrentSorting] = React.useState<string>();
+
+    React.useEffect(() => console.log(currentSorting), [currentSorting]);
+    function filterProducts(data: Product[]) {
+        data = data.filter(
+            (item) => item.price >= values[0] && item.price <= values[1],
+        );
+        if (onSaleChecked) {
+            return data.filter((item) => item.status.type === 'DISCOUNT');
+        } else if (inStockChecked) {
+            return data.filter((item) => item.status.type !== 'SOLD_OUT');
+        } else {
+            return data;
+        }
+    }
+
+    function sortProducts(data: Product[]) {
+        if (currentSorting === 'Ascending') {
+            return data.sort((a, b) => a.price - b.price);
+        } else if (currentSorting === 'Descending') {
+            return data.sort((a, b) => b.price - a.price);
+        } else if (currentSorting === 'Default') {
+            return data;
+        }
+    }
+
     return (
         <div className="shop-widget">
             <h1>Shop The Latest</h1>
@@ -34,32 +61,28 @@ export function ShopWidget() {
                             <img src={SearchIcon} />
                         </button>
                     </div>
-                    <div className="shopByFilter">
-                        <select name="shopBy" className="shopBy" required>
-                            <option selected disabled />
-                            <option value="value1">Значение1</option>
-                            <option value="value2">Значение2</option>
-                            <option value="value3">Значение3</option>
-                        </select>
-                        <label className="label">Shop By</label>
-                    </div>
                     <div className="sortByFilter">
-                        <select name="sortBy" className="sortBy" required>
+                        <select
+                            name="sortBy"
+                            className="sortBy"
+                            required
+                            onChange={(e) => setCurrentSorting(e.target.value)}
+                        >
                             <option selected disabled />
-                            <option value="value1">
+                            <option value="Ascending">
                                 Sort By price: Low to High
                             </option>
-                            <option value="value2">
-                                Sort By: Ascending order
+                            <option value="Descending">
+                                Sort By price: High to Low
                             </option>
-                            <option value="value3">Sort By: A-Z</option>
+                            <option value="Default">Default</option>
                         </select>
                         <label className="label">Sort By</label>
                     </div>
 
                     <div className="range-slider-container">
                         <label className="range-label-1">
-                            Price: $40 - $180
+                            {`Price: $${values[0]} - $${values[1]}`}
                         </label>
                         <label className="range-label-2">Filter</label>
                         <div className="rangeslider">
@@ -67,7 +90,7 @@ export function ShopWidget() {
                                 className="min input-ranges"
                                 name="range_1"
                                 type="range"
-                                min="40"
+                                min="0"
                                 max="180"
                                 value={values[0]}
                                 onChange={(e) =>
@@ -78,7 +101,7 @@ export function ShopWidget() {
                                 className="max input-ranges"
                                 name="range_1"
                                 type="range"
-                                min="40"
+                                min="0"
                                 max="180"
                                 value={values[1]}
                                 onChange={(e) =>
@@ -118,15 +141,20 @@ export function ShopWidget() {
                 </div>
                 <div className="shop-widget-products">
                     {products &&
-                        products?.map((product) => (
-                            <ProductCard
-                                src={getImage(product.src, 'product-images')}
-                                name={product.name}
-                                price={product.price}
-                                key={product.id}
-                                badge={getProductBadge(product.status)}
-                            />
-                        ))}
+                        sortProducts(filterProducts(products))?.map(
+                            (product) => (
+                                <ProductCard
+                                    src={getImage(
+                                        product.src,
+                                        'product-images',
+                                    )}
+                                    name={product.name}
+                                    price={product.price}
+                                    key={product.id}
+                                    badge={getProductBadge(product.status)}
+                                />
+                            ),
+                        )}
                 </div>
             </div>
         </div>
